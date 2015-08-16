@@ -1,26 +1,26 @@
-/*
-This is empty on purpose! Your code to build the resume will go here.
- */
+'use strict';
+
 
 var bio = {
-	"name" : "Jonathan Reyles",
-	"role" : "Full-Stack Developer",
-	"welcomeMessage" : "What's up?",
+	'name' : "Jonathan Reyles",
+	"role" : "Full-Stack Developer & Data Scientist",
+	"welcomeMessage" : "Welcome to my Resume Page",
 	"bioPic": "http://placekitten.com/g/200/300",
 	"contacts" : {"mobile" : "(626)617-5597",
-	"e-mail" : "jreyles@gmail.com",
+	"email" : "jreyles@gmail.com",
 	"github" : "github.com/jreyles",
 	"twitter": "@jreyles",
 	"location" : "San Jose, CA"	
 	} ,
 	"skills" : ["MEAN Stack", "LAMP Stack", "Python/Django Stack"],
+};
+// Dot notation to clear up the object's namespace from being too cluttered
+bio.display = function() {
 
-	"display" : function()  {
-//topcontacts
 $("#header").append(HTMLworkStart);
 
 var formattedName = HTMLheaderName.replace('%data%',bio.name);
-var formattedRole = HTMLheaderName.replace('%data%',bio.role);
+var formattedRole = HTMLheaderRole.replace('%data%',bio.role);
 var formattedbioPic = HTMLbioPic.replace('%data%',bio.bioPic);
 var formattedWelcome = HTMLWelcomeMsg.replace('%data%',bio.welcomeMessage);
 
@@ -31,29 +31,31 @@ $('#header').prepend(formattedWelcome);
 
 
 for(var contact in bio.contacts) {
-	$("#topcontacts").append(HTMLcontactGeneric);
-	$("#footerContacts").append()
-//	var formattedEmployer = HTMLworkEmployer.replace("%data%",bio.mobile[contact].employer);
-//	$('#topcontacts').prepend(formattedWelcome);
-	var formattedMobile = HTMLmobile.replace("%data%",bio.contacts[contact].mobile);
-	$('.flex-item:last').append(formattedMobile);
+	$("#topcontacts").append(bio.contacts.contact);
+	$('footerContacts').append(bio.contacts.contact);
 
-	var formattedEmail = HTMLemail.replace("%data%",bio.contacts[contact].email);
+}
+	var formattedMobile = HTMLmobile.replace('%data%',bio.contacts.mobile);
+	$('.flex-box:last').append(formattedMobile);
+
+	var formattedEmail = HTMLemail.replace("%data%",bio.contacts.email);
 	$('.flex-item:last').append(formattedEmail);
 
-	var formattedTwitter = HTMLtwitter.replace("%data%",bio.contacts[contact].twitter);
+	var formattedTwitter = HTMLtwitter.replace("%data%",bio.contacts.twitter);
 	$('.flex-item:last').append(formattedTwitter);
 
-	var formattedLocation = HTMLlocation.replace("%data%",bio.contacts[contact].location);
+	var formattedLocation = HTMLlocation.replace("%data%",bio.contacts.location);
 	$('.flex-item:last').append(formattedLocation);
 
-	var formattedGithub = HTMLgithub.replace("%data%",bio.contacts[contact].github);
+	var formattedGithub = HTMLgithub.replace("%data%",bio.contacts.github);
 //	$('#topcontacts').prepend(formattedMobile);
 //	var formattedLocation = formattedEmployer + formattedTitle + formattedLocation + formattedDates + formattedDescription;
 
 	$(".flex-item:last").append(formattedGithub);
 
-}
+
+
+
 if(bio.skills.length > 0) {
 		$("#header").append(HTMLskillsStart);
 	
@@ -67,31 +69,14 @@ if(bio.skills.length > 0) {
 }
 
 
-}
+
 
 };
 
-
-
-
-/*
-$("#header").append(HTMLworkStart);
-var formattedName = HTMLheaderName.replace('%data%',bio.name);
-$("#header").prepend(formattedName);
-var formattedRole = HTMLheaderName.replace('%data%',bio.role);
-$("#header").prepend(formattedRole);
-var formattedWelcome = HTMLWelcomeMsg.replace('%data%',bio.welcomeMessage);
-$('#header').prepend(formattedWelcome);
-*/
-//displaybio();
-
-
-
-
 var work = {
-	"jobs" : [
+	'jobs' : [
 	{
-	"employer" : "self-employed",	
+	'employer' : "self-employed",	
 	"title" : "I'm CEO, Bitch",
 	"location" : "San Jose, CA",
 	"dates" : "August 2011-present",
@@ -156,7 +141,7 @@ for(var job in work.jobs) {
 }
 
 }
-}
+};
 
 var education = {
 	"schools" : [
@@ -193,7 +178,7 @@ var education = {
 		],
 
 	"display" : function() {
-	for (edu in education.schools) {
+	for (var edu in education.schools) {
 		$("#education").append(HTMLschoolStart);
 		var formattedSchoolName = HTMLschoolName.replace("%data%",education.schools[edu].name);
 		$('.education-entry:last').append(formattedSchoolName);
@@ -209,7 +194,7 @@ var education = {
 	}
 
 }	
-}
+};
 
 var projects = {
     "projects" : [
@@ -261,53 +246,10 @@ var projects = {
 	}
 
 }
-
-
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*var HTMLschoolStart = '<div class="education-entry"></div>';
-var HTMLschoolName = '<a href="#">%data%';
-var HTMLschoolDegree = ' -- %data%</a>';
-var HTMLschoolDates = '<div class="date-text">%data%</div>';
-var HTMLschoolLocation = '<div class="location-text">%data%</div>';
-var HTMLschoolMajor = '<em><br>Major: %data%</em>';
-
-var HTMLonlineClasses = '<h3>Online Classes</h3>';
-var HTMLonlineTitle = '<a href="#">%data%';
-var HTMLonlineSchool = ' - %data%</a>';
-var HTMLonlineDates = '<div class="date-text">%data%</div>';
-var HTMLonlineURL = '<br><a href="#">%data%</a>';*/
-
-
-
-
-
-
+};
 
 $('#mapDiv').append(googleMap);
 
-/*
-var HTMLprojectStart = '<div class="project-entry"></div>';
-var HTMLprojectTitle = '<a href="#">%data%</a>';
-var HTMLprojectDates = '<div class="date-text">%data%</div>';
-var HTMLprojectDescription = '<p><br>%data%</p>';
-var HTMLprojectImage = '<img src="%data%">';
-
-*/
 
 //Execute files
 projects.display();

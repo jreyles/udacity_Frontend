@@ -24,34 +24,34 @@ var formattedRole = HTMLheaderRole.replace('%data%',bio.role);
 var formattedbioPic = HTMLbioPic.replace('%data%',bio.bioPic);
 var formattedWelcome = HTMLWelcomeMsg.replace('%data%',bio.welcomeMessage);
 
-$("#header").prepend(formattedName);
-$("#header").prepend(formattedRole);
+$('#header').prepend(formattedName);
+$('#header').prepend(formattedRole);
 $('#header').prepend(formattedbioPic);
 $('#header').prepend(formattedWelcome);
 
 
-for(var contact in bio.contacts) {
-	$("#topcontacts").append(bio.contacts.contact);
-	$('footerContacts').append(bio.contacts.contact);
 
-}
+//	$("#topcontacts").append(bio.contacts);
+//	$('footerContacts').append(bio.contacts);
+
+
 	var formattedMobile = HTMLmobile.replace('%data%',bio.contacts.mobile);
-	$('.flex-box:last').append(formattedMobile);
+	$('.flex-box').append(formattedMobile);
 
 	var formattedEmail = HTMLemail.replace("%data%",bio.contacts.email);
-	$('.flex-item:last').append(formattedEmail);
+	$('.flex-box').append(formattedEmail);
 
 	var formattedTwitter = HTMLtwitter.replace("%data%",bio.contacts.twitter);
-	$('.flex-item:last').append(formattedTwitter);
+	$('.flex-box').append(formattedTwitter);
 
 	var formattedLocation = HTMLlocation.replace("%data%",bio.contacts.location);
-	$('.flex-item:last').append(formattedLocation);
+	$('.flex-box').append(formattedLocation);
 
 	var formattedGithub = HTMLgithub.replace("%data%",bio.contacts.github);
 //	$('#topcontacts').prepend(formattedMobile);
 //	var formattedLocation = formattedEmployer + formattedTitle + formattedLocation + formattedDates + formattedDescription;
 
-	$(".flex-item:last").append(formattedGithub);
+	$('.flex-box').append(formattedGithub);
 
 
 
@@ -97,8 +97,8 @@ var work = {
 	"description" : "123"
 	},
 	{
-	"employer" : "CAMCOS",	
-	"title" : "Research Assistant",
+	"employer" : "CommUniverCity San Jose",	
+	"title" : "Project Coordinator",
 	"location" : "San Jose,CA",
 	"dates" : "August 2012 - December 2012",
 	"description" : "123"
@@ -202,26 +202,26 @@ var projects = {
             "title": "HTML5 Arcade Game",
             "dates": "August 2015 - Present",
             "description": "Technologies used: jquery, javascript, CSS, HTML5",
-            "images": "images/fry.jpg"
+            'images': ['images/fry.jpg']
         },
         {
             "title": "Data Visualization",
             "dates": "August 2015 - Present",
             "description": "Technologies used: jquery, javascript, CSS, HTML5",
-            "images": "images/fry.jpg"
+            'images': ['images/fry.jpg']
         },
 
         {
             "title": "Javascript Resume",
             "dates": "June 2015-August 2015",
             "description": "Technologies used: jquery, javascript, CSS, HTML5",
-            "images": "images/fry.jpg"
+            'images': ['images/fry.jpg']
         },
         {
             "title": "Quantum Biology",
             "dates": "June 2015",
             "description": "Developing a cheaper device to run surface plasmon resonance experiments on.",
-            "images": "images/fry.jpg"
+            'images': ['images/fry.jpg']
         }
     ],
 
